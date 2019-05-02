@@ -133,8 +133,6 @@ JNIEXPORT void JNICALL Java_org_signal_aesgcmprovider_AesGcmCipher_destroy
         (JNIEnv *env, jobject obj, jlong ctxPointer)
 {
     EVP_CIPHER_CTX *ctx = (EVP_CIPHER_CTX*)ctxPointer;
-
-    EVP_CIPHER_CTX_cleanup(ctx);
-    free(ctx);
+    EVP_CIPHER_CTX_free(ctx);
 }
 
